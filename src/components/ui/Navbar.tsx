@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -11,13 +11,13 @@ export default function Navbar() {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    const menuVariants = {
+    const menuVariants: Variants = {
         closed: {
             opacity: 0,
             y: "-100%",
             transition: {
                 duration: 0.5,
-                ease: "easeInOut",
+                ease: [0.76, 0, 0.24, 1] as const,
             },
         },
         open: {
@@ -25,7 +25,7 @@ export default function Navbar() {
             y: 0,
             transition: {
                 duration: 0.5,
-                ease: "easeInOut",
+                ease: [0.76, 0, 0.24, 1] as const,
             },
         },
     };
@@ -38,7 +38,7 @@ export default function Navbar() {
             transition: {
                 delay: 0.3 + i * 0.1,
                 duration: 0.5,
-                ease: "easeOut",
+                ease: [0.17, 0.67, 0.83, 0.67] as const,
             },
         }),
     };
@@ -77,7 +77,7 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                         className="hidden md:flex items-center gap-2 px-6 py-2 text-sm font-medium text-white border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 group font-sans"
                     >
-                        LET'S TALK
+                        LET&apos;S TALK
                         <span className="group-hover:translate-x-1 transition-transform">
                             →
                         </span>
@@ -163,7 +163,7 @@ export default function Navbar() {
                                     onClick={toggleMenu}
                                     className="px-8 py-3 text-lg font-medium text-black bg-[#CCFF00] rounded-full hover:bg-[#b3e600] transition-colors font-sans"
                                 >
-                                    LET'S TALK
+                                    LET&apos;S TALK
                                 </Link>
                             </motion.div>
                         </div>
